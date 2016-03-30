@@ -90,6 +90,11 @@ public class CriarAtividade extends javax.swing.JInternalFrame {
             }
         });
 
+        txtNumPart.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNumPartActionPerformed(evt);
+            }
+        });
         txtNumPart.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtNumPartKeyReleased(evt);
@@ -188,7 +193,7 @@ public class CriarAtividade extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -256,14 +261,19 @@ public class CriarAtividade extends javax.swing.JInternalFrame {
     private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
         listCampos.add(txtId);
         
-        Atividade atividade = new Atividade();
-        atividade.setId(Integer.parseInt(txtId.getText()));
-        
-        if(at.excluir(atividade)){
-            JOptionPane.showMessageDialog(null, "Excluido com sucesso");
-            util.LimpaCampos(listCampos);
+        if(!txtId.getText().equals("")){
+            Atividade atividade = new Atividade();
+            atividade.setId(Integer.parseInt(txtId.getText()));
+
+            if(at.excluir(atividade)){
+                JOptionPane.showMessageDialog(null, "Excluido com sucesso");
+                util.LimpaCampos(listCampos);
+                btnListarActionPerformed(evt);         
+            }else{
+                JOptionPane.showMessageDialog(null, "Falha na exclusão");
+            }
         }else{
-            JOptionPane.showMessageDialog(null, "Falha na exclusão");
+            JOptionPane.showMessageDialog(null, "Insira o Id da atividade");
         }
     }//GEN-LAST:event_btnExcluirActionPerformed
 
@@ -285,17 +295,18 @@ public class CriarAtividade extends javax.swing.JInternalFrame {
             }else{
                 JOptionPane.showMessageDialog(null, "Falha na Alteração");
             }
+        }else{
+            JOptionPane.showMessageDialog(null, "Preencha todos os campos");
         }
     }//GEN-LAST:event_btnAlterarActionPerformed
 
     private void tblListaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblListaMouseClicked
          int linha = tblLista.getSelectedRow();
-         System.out.println(linha);
          
-         txtId.setText(tblLista.getValueAt(linha,0)+"");
-         txtNumCursos.setText(tblLista.getValueAt(linha,1)+"");
-         txtNumPart.setText(tblLista.getValueAt(linha,2)+"");
-         txtLocal.setText(tblLista.getValueAt(linha,3)+"");
+        txtId.setText(tblLista.getValueAt(linha,0)+"");
+        txtNumCursos.setText(tblLista.getValueAt(linha,1)+"");
+        txtNumPart.setText(tblLista.getValueAt(linha,2)+"");
+        txtLocal.setText(tblLista.getValueAt(linha,3)+"");
 
     }//GEN-LAST:event_tblListaMouseClicked
 
@@ -322,6 +333,10 @@ public class CriarAtividade extends javax.swing.JInternalFrame {
     private void txtNumPartKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNumPartKeyTyped
         util.SomenteNumeros(evt);
     }//GEN-LAST:event_txtNumPartKeyTyped
+
+    private void txtNumPartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNumPartActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNumPartActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAlterar;

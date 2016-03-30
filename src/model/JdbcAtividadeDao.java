@@ -73,7 +73,7 @@ public abstract class JdbcAtividadeDao implements AtividadeDAO{
     public boolean alterar(Atividade atividade){
         try{
             String sql = "UPDATE ATIVIDADES SET max_curso = ?, max_participante = ?, localizacao = ? where id = ?";
-            stmt = conn.prepareCall(sql);
+            stmt = conn.prepareStatement(sql);
             
             stmt.setInt(1, atividade.getMaxCurso());
             stmt.setInt(2, atividade.getMaxParticipante());
@@ -94,7 +94,7 @@ public abstract class JdbcAtividadeDao implements AtividadeDAO{
     public boolean excluir(Atividade atividade){
         try{
             String sql = "DELETE FROM ATIVIDADES WHERE id = ?";
-            stmt = conn.prepareCall(sql);
+            stmt = conn.prepareStatement(sql);
             
             stmt.setInt(1, atividade.getId());
             
