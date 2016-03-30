@@ -37,5 +37,12 @@ public class Util {
         for (JTextField field : fields) {
             field.setText("");
         }
-    }
+   }
+   
+   public void SomenteNumeros(java.awt.event.KeyEvent evt){
+       String caracteres = "1234567890";
+        if(!caracteres.contains(evt.getKeyChar()+"")){
+            evt.consume();
+        }
+   }
 }

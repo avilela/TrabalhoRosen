@@ -27,10 +27,14 @@ public class Desktop extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jMenuItem1 = new javax.swing.JMenuItem();
         desktopPane = new javax.swing.JDesktopPane();
         menuBar = new javax.swing.JMenuBar();
         menuAtividade = new javax.swing.JMenu();
         menuCadastrarAtividade = new javax.swing.JMenuItem();
+        menuSair = new javax.swing.JMenu();
+
+        jMenuItem1.setText("jMenuItem1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -47,6 +51,14 @@ public class Desktop extends javax.swing.JFrame {
         menuAtividade.add(menuCadastrarAtividade);
 
         menuBar.add(menuAtividade);
+
+        menuSair.setText("Sair");
+        menuSair.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                menuSairMouseClicked(evt);
+            }
+        });
+        menuBar.add(menuSair);
 
         setJMenuBar(menuBar);
 
@@ -69,6 +81,10 @@ public class Desktop extends javax.swing.JFrame {
         desktopPane.add(ct);
         ct.setVisible(true);
     }//GEN-LAST:event_menuCadastrarAtividadeActionPerformed
+
+    private void menuSairMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuSairMouseClicked
+        System.exit(0);
+    }//GEN-LAST:event_menuSairMouseClicked
 
     /**
      * @param args the command line arguments
@@ -106,8 +122,10 @@ public class Desktop extends javax.swing.JFrame {
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane desktopPane;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenu menuAtividade;
     private javax.swing.JMenuBar menuBar;
     private javax.swing.JMenuItem menuCadastrarAtividade;
+    private javax.swing.JMenu menuSair;
     // End of variables declaration//GEN-END:variables
 }

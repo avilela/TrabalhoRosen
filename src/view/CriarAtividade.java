@@ -29,6 +29,7 @@ public class CriarAtividade extends javax.swing.JInternalFrame {
     public CriarAtividade() {
         initComponents();
         
+        
         String[] colunas = new String[4];
         
         colunas[0] = "Id";
@@ -69,6 +70,8 @@ public class CriarAtividade extends javax.swing.JInternalFrame {
         jLabel5 = new javax.swing.JLabel();
         txtId = new javax.swing.JTextField();
 
+        setAutoscrolls(true);
+
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel1.setText("Criar Atividade");
 
@@ -77,6 +80,24 @@ public class CriarAtividade extends javax.swing.JInternalFrame {
         jLabel3.setText("Número de Participantes");
 
         jLabel4.setText("Localização");
+
+        txtNumCursos.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtNumCursosKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtNumCursosKeyTyped(evt);
+            }
+        });
+
+        txtNumPart.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtNumPartKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtNumPartKeyTyped(evt);
+            }
+        });
 
         btnCriar.setText("Salvar");
         btnCriar.addActionListener(new java.awt.event.ActionListener() {
@@ -114,6 +135,15 @@ public class CriarAtividade extends javax.swing.JInternalFrame {
         });
 
         jLabel5.setText("Id");
+
+        txtId.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtIdKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtIdKeyTyped(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -158,7 +188,7 @@ public class CriarAtividade extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -268,6 +298,30 @@ public class CriarAtividade extends javax.swing.JInternalFrame {
          txtLocal.setText(tblLista.getValueAt(linha,3)+"");
 
     }//GEN-LAST:event_tblListaMouseClicked
+
+    private void txtIdKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtIdKeyReleased
+        
+    }//GEN-LAST:event_txtIdKeyReleased
+
+    private void txtNumCursosKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNumCursosKeyReleased
+        
+    }//GEN-LAST:event_txtNumCursosKeyReleased
+
+    private void txtNumPartKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNumPartKeyReleased
+        
+    }//GEN-LAST:event_txtNumPartKeyReleased
+
+    private void txtIdKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtIdKeyTyped
+        util.SomenteNumeros(evt);
+    }//GEN-LAST:event_txtIdKeyTyped
+
+    private void txtNumCursosKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNumCursosKeyTyped
+        util.SomenteNumeros(evt);
+    }//GEN-LAST:event_txtNumCursosKeyTyped
+
+    private void txtNumPartKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNumPartKeyTyped
+        util.SomenteNumeros(evt);
+    }//GEN-LAST:event_txtNumPartKeyTyped
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAlterar;
